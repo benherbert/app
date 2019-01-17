@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+// $buttonColors: (
+//   buttonBackground: green,
+//   buttonText: #fff,
+//   buttonBorder: #000
+// ) !default;
+
+$baseColors: (
+  background: blue,
+  text: red,
+  border: green
+) !default;
+
+:root {
+  @each $name, $color in $baseColors {
+    --color-#{$name}: #{$color};
+  }
+}
+
+@function color($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+body {
+  color: color(text);
+}
+
+// .button {
+//   background-color: map-get($buttonColors, buttonBackground);
+//   border-radius: 4px;
+//   border: 1px solid map-get($buttonColors, buttonBorder);
+//   display: inline-block;
+//   color: map-get($buttonColors, buttonText);
+//   cursor: pointer;
+//   font-weight: bold;
+//   padding: 6px 12px;
+//   text-decoration: none;
+// }

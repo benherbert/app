@@ -1,8 +1,8 @@
-import path from 'path'
-import autoprefixer from 'autoprefixer'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+const path = require('path')
+const autoprefixer = require('autoprefixer')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -12,27 +12,21 @@ const config = {
   mode: isDev ? 'development' : 'production',
 
   entry: {
-    // JS
-    'app': [
-      path.resolve(__dirname, 'src/index.js')
-    ],
-    // CSS
     'styles': [
-      path.join(__dirname, 'src/assets/styles/app.scss')
+      path.join(__dirname, 'src/assets/styles/scss/app.scss')
     ]
   },
 
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'commonjs2'
+    path: path.resolve(__dirname, 'dist')
   },
 
   resolve: {
     extensions: ['.js', '.json']
   },
 
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
 
   module: {
     rules: [
@@ -72,13 +66,6 @@ const config = {
           }
         ],
         include: path.join(__dirname, '/src')
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [
-          path.join(__dirname, 'src/')
-        ]
       }
     ]
   },
