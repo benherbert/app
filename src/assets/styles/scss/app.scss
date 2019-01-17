@@ -3,20 +3,24 @@
   font-size: 16px;
 }
 
-// $buttonColors: (
-//   buttonBackground: green,
-//   buttonText: #fff,
-//   buttonBorder: #000
-// ) !default;
+$buttonColors: (
+  buttonBackground: grey,
+  buttonText: white,
+  buttonBorder: black
+) !default;
 
 $baseColors: (
   background: blue,
-  text: red,
-  border: green
+  text: black,
+  border: grey
 ) !default;
 
 :root {
   @each $name, $color in $baseColors {
+    --color-#{$name}: #{$color};
+  }
+
+  @each $name, $color in $buttonColors {
     --color-#{$name}: #{$color};
   }
 }
@@ -29,14 +33,14 @@ body {
   color: color(text);
 }
 
-// .button {
-//   background-color: map-get($buttonColors, buttonBackground);
-//   border-radius: 4px;
-//   border: 1px solid map-get($buttonColors, buttonBorder);
-//   display: inline-block;
-//   color: map-get($buttonColors, buttonText);
-//   cursor: pointer;
-//   font-weight: bold;
-//   padding: 6px 12px;
-//   text-decoration: none;
-// }
+.button {
+  background-color: color(buttonBackground);
+  border-radius: 4px;
+  border: 1px solid color(buttonBorder);
+  display: inline-block;
+  color: color(buttonText);
+  cursor: pointer;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+}
