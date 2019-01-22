@@ -1,0 +1,7 @@
+@mixin theme($theme, $colors) {
+  $prefix: '--color';
+  @each $key, $value in $colors {
+    @debug #{$value};
+    #{$prefix}-#{$theme}-#{$key}: #{$value};
+  }
+}

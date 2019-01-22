@@ -1,0 +1,43 @@
+$themes: (
+  default: (
+    background: lightsalmon,
+    text: crimson,
+    border: firebrick,
+    background-alt: orangered,
+    text-alt: black,
+    border-alt: orange
+  ),
+  wolf: (
+    background:#F4EEEE,
+    text: #0C2925,
+    border: #D8CECE,
+    background-alt: #1B3E3C,
+    text-alt: #F4EEEE,
+    border-alt: #0C2925
+  ),
+  fox: (
+    background: coral,
+    text: orangered,
+    border: darkorange,
+    background-alt: orangered,
+    text-alt: black,
+    border-alt: orange
+  ),
+  dingo: (
+    background: lemonchiffon,
+    text: peachpuff,
+    border: darkkhaki,
+    background-alt: orangered,
+    text-alt: black,
+    border-alt: orange
+  ),
+  coyote: (
+    background: lawngreen,
+    text: green,
+    border: olive,
+    background-alt: orangered,
+    text-alt: black,
+    border-alt: orange
+  )
+) !default;
+

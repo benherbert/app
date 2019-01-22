@@ -1,0 +1,11 @@
+@mixin button($theme: $app-theme) {
+  background-color: color("background", $theme);
+  border-color: color("border", $theme);
+  color: color("text", $theme);
+
+  &:hover {
+    background-color: color("background-alt", $theme);
+    border-color: color("border-alt", $theme);
+    color: color("text-alt", $theme);
+  }
+}

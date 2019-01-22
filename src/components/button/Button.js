@@ -23,7 +23,7 @@ function Button ({
       'data-qa': qaId
     }
     return (
-      <div>
+      <div className='wolf'>
         Hello world: 
         <button {...props}>{ children }</button>
       </div>

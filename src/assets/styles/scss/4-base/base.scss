@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  font-size: $base-font-size;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  @each $key, $value in $themes {
+    @debug $value;
+    @include theme($key, $value);
+  }
+}
+
+body {
+  color: color('text', 'wolf');
+  background-color: color('background');
+  border-color: color('border');
+}

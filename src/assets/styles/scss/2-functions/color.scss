@@ -1,0 +1,3 @@
+@function color($color-name, $theme-name: $app-theme) {
+  @return var(--color-#{$theme-name}-#{$color-name});
+}
