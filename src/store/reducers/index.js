@@ -1,19 +1,11 @@
-// import { ACTION_COUNTER } from './actions'
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { combineReducers } from 'redux'
 
-const initialState = 0
+// Import Reducers
+import { counter } from './counter.reducer'
 
-const reducerCounter = (state = initialState, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    default:
-      return state
-  }
-}
-
-export default combineReducers({
-  reducerCounter
+// Combine Reducers
+const allReducers = combineReducers({
+  counter
 })
+
+export { allReducers }

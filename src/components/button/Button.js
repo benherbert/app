@@ -1,17 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-function Button ({
-  ariaLabel,
-  children,
-  className,
-  handleClick,
-  isDisabled = false,
-  target,
-  type = 'button',
-  url,
-  qaId
-}: ButtonType) {
+function Button ({ ariaLabel, children, className, handleClick, isDisabled = false, type = 'button', qaId }) {
   const buttonClass = classNames(className, 'button')
 
   const renderButton = () => {
@@ -20,12 +10,13 @@ function Button ({
       className: buttonClass,
       'aria-label': ariaLabel,
       disabled: isDisabled,
-      'data-qa': qaId
+      'data-qa': qaId,
+      onClick: handleClick
     }
+
     return (
       <div className='wolf'>
-        Hello world: 
-        <button {...props}>{ children }</button>
+        <button {...props}>{children}</button>
       </div>
     )
   }
@@ -33,4 +24,4 @@ function Button ({
   return renderButton()
 }
 
-export default Button
+export { Button }

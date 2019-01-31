@@ -1,39 +1,57 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-const Index = () => <h2>Home</h2>
+import { increment } from '../../store/actions/increment.action'
+
+import { Button } from '../button/Button'
+
+const Index = () => {
+  return (
+    <>
+      <h2>Home</h2>
+    </>
+  )
+}
+
 const About = () => <h2>About</h2>
 const Users = () => <h2>Users</h2>
 
-const App = () => (
-  <Router>
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about/'>About</Link>
-          </li>
-          <li>
-            <Link to='/users/'>Users</Link>
-          </li>
-        </ul>
-      </nav>
+const App = ({ dispatch }) => {
+  const buttonAction = () => {
+    return dispatch(increment)
+  }
 
-      <Route path='/' exact component={Index} />
-      <Route path='/about/' component={About} />
-      <Route path='/users/' component={Users} />
-    </div>
-  </Router>
-)
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='/about/'>About</Link>
+            </li>
+            <li>
+              <Link to='/users/'>Users</Link>
+            </li>
+            <li>
+              <Button handleClick={buttonAction}>Increment it!</Button>
+            </li>
+          </ul>
+        </nav>
 
-const mapStateToProps = state => ({})
-const ConnectedApp = connect(
-  mapStateToProps,
-  null
-)(App)
+        <Route path='/' exact component={Index} />
+        <Route path='/about/' component={About} />
+        <Route path='/users/' component={Users} />
+      </div>
+    </Router>
+  )
+}
+
+const mapStateToProps = state => state
+
+const ConnectedApp = connect(mapStateToProps)(App)
 
 export default ConnectedApp
