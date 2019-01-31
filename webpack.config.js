@@ -3,6 +3,7 @@ const autoprefixer = require('autoprefixer')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -12,6 +13,9 @@ const config = {
   mode: isDev ? 'development' : 'production',
 
   entry: {
+    'app': [
+      path.join(__dirname, 'src/index.js')
+    ],
     'styles': [
       path.join(__dirname, 'src/assets/styles/scss/app.scss')
     ]
@@ -23,10 +27,19 @@ const config = {
   },
 
   resolve: {
-    extensions: ['.js', '.json']
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    extensions: ['.scss', '.js', '.json']
   },
 
-  devtool: 'source-map',
+  devtool: isDev ? 'inline-source-map' : 'source-map',
+
+  target: 'web',
+
+  devServer: {
+    contentBase: path.join(__dirname),
+    watchContentBase: true,
+    disableHostCheck: true
+  },
 
   module: {
     rules: [
@@ -66,7 +79,23 @@ const config = {
           }
         ],
         include: path.join(__dirname, '/src')
-      }
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader'
+          }
+        ]
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, 'src/')
+        ]
+      },
     ]
   },
 
@@ -82,6 +111,15 @@ const config = {
       openAnalyzer: false,
       analyzerMode: 'static',
       reportFilename: isDev ? './reports/bundle-report-dev.html' : './reports/bundle-report-prod.html'
+    }),
+    new HtmlWebPackPlugin({
+      template: './src/index.ejs',
+      filename: 'index.html',
+      inject: false,
+      meta: {
+        'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        'theme-color': '#ffffff'
+      }
     })
   ]
 

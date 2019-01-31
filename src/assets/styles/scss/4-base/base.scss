@@ -6,7 +6,6 @@
 
 :root {
   @each $key, $value in $themes {
-    @debug $value;
     @include theme($key, $value);
   }
 }
