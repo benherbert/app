@@ -15,7 +15,7 @@ const Basic = (props) => {
     return dispatch(increment)
   }
 
-  const renderButton = () => <Button handleClick={buttonAction}>Increment it!</Button>
+  const renderButton = () => <Button handleClick={buttonAction} className='theme--wolf'>I update the redux store / counter!</Button>
 
   return (
     <>

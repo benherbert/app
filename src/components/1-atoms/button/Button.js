@@ -16,9 +16,7 @@ const Button = props => {
     }
 
     return (
-      <div className='wolf'>
-        <button {...buttonAttributes}>{children}</button>
-      </div>
+      <button {...buttonAttributes}>{children}</button>
     )
   }
 
