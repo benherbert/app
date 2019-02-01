@@ -21,4 +21,8 @@
   &.theme--fox {
     @include button('fox');
   }
+
+  &.theme--coyote {
+    @include button('coyote');
+  }
 }

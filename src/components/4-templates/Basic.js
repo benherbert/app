@@ -1,28 +1,42 @@
 // Import Packages
 import React from 'react'
 import classNames from 'classnames'
+import { connect } from 'react-redux'
 
 // Import Actions
 import { increment } from '../../store/actions/increment.action'
+import { decrement } from '../../store/actions/decrement.action'
 
 // Import Components
 import { Button } from '../1-atoms/button/Button'
 
-const Basic = (props) => {
-  const { title, dispatch, showOurFunButton = false } = props
+const Basic = props => {
+  const { title, dispatch, showOurFunButton = false, counter = 0 } = props
 
-  const buttonAction = () => {
-    return dispatch(increment)
-  }
+  const buttonActionIncrement = () => dispatch(increment)
+  const buttonActionDecrement = () => dispatch(decrement)
 
-  const renderButton = () => <Button handleClick={buttonAction} className='theme--wolf'>I update the redux store / counter!</Button>
+  const renderButton = () => (
+    <div>
+      <Button handleClick={buttonActionIncrement} className='theme--coyote'>
+        Increment
+      </Button>
+      <Button handleClick={buttonActionDecrement} className='theme--fox'>
+        Decrement
+      </Button>
+      <div>The Counter is set to {counter}</div>
+    </div>
+  )
 
   return (
     <>
       <h2>{title}</h2>
-      { showOurFunButton && renderButton() }
+      {showOurFunButton && renderButton()}
     </>
   )
 }
 
-export { Basic }
+const mapStateToProps = state => state
+const ConnectedBasic = connect(mapStateToProps)(Basic)
+
+export { ConnectedBasic }

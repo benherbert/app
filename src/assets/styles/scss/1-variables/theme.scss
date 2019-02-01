@@ -19,12 +19,12 @@ $themes: (
   ),
   fox: (
     background: coral,
-    text: orangered,
-    border: darkorange,
-    shadow: tomato,
-    background-alt: orangered,
+    text: darkred,
+    border: darkred,
+    shadow: darkred,
+    background-alt: orange,
     text-alt: darkred,
-    border-alt: orange
+    border-alt: orangered
   ),
   coyote: (
     background: lawngreen,
@@ -33,7 +33,7 @@ $themes: (
     shadow: limegreen,
     background-alt: lime,
     text-alt: darkgreen,
-    border-alt: springgreen
+    border-alt: olive
   )
 ) !default;
 
