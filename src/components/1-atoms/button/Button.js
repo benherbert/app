@@ -1,11 +1,12 @@
 import React from 'react'
 import classNames from 'classnames'
 
-function Button ({ ariaLabel, children, className, handleClick, isDisabled = false, type = 'button', qaId }) {
+const Button = props => {
+  const { ariaLabel, children, className, handleClick, isDisabled = false, type = 'button', qaId } = props
   const buttonClass = classNames(className, 'button')
 
   const renderButton = () => {
-    const props = {
+    const buttonAttributes = {
       type,
       className: buttonClass,
       'aria-label': ariaLabel,
@@ -16,7 +17,7 @@ function Button ({ ariaLabel, children, className, handleClick, isDisabled = fal
 
     return (
       <div className='wolf'>
-        <button {...props}>{children}</button>
+        <button {...buttonAttributes}>{children}</button>
       </div>
     )
   }

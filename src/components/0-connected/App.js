@@ -1,26 +1,16 @@
+// Import Packages
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import { increment } from '../../store/actions/increment.action'
+// Import Components
+import { Basic } from '../4-templates/Basic'
 
-import { Button } from '../button/Button'
-
-const Index = () => {
-  return (
-    <>
-      <h2>Home</h2>
-    </>
-  )
-}
-
-const About = () => <h2>About</h2>
-const Users = () => <h2>Users</h2>
-
-const App = ({ dispatch }) => {
-  const buttonAction = () => {
-    return dispatch(increment)
-  }
+const App = (props) => {
+  const { dispatch } = props
+  const Index = () => <Basic title='Home' {...props} />
+  const About = () => <Basic title='About' showOurFunButton {...props} />
+  const Users = () => <Basic title='Users' {...props} />
 
   return (
     <Router>
@@ -36,9 +26,6 @@ const App = ({ dispatch }) => {
             <li>
               <Link to='/users/'>Users</Link>
             </li>
-            <li>
-              <Button handleClick={buttonAction}>Increment it!</Button>
-            </li>
           </ul>
         </nav>
 
@@ -51,7 +38,6 @@ const App = ({ dispatch }) => {
 }
 
 const mapStateToProps = state => state
-
 const ConnectedApp = connect(mapStateToProps)(App)
 
 export default ConnectedApp

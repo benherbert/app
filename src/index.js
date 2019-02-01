@@ -12,12 +12,11 @@ import { allReducers } from './store/reducers/index'
 // import rootSaga from './store/sagas'
 
 // Import Components
-import ConnectedApp from './components/app/App'
+import ConnectedApp from './components/0-connected/App'
 
 // const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(allReducers)
-
 // sagaMiddleware.run(rootSaga)
 
 // Log the initial state

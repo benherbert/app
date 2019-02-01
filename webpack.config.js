@@ -23,7 +23,8 @@ const config = {
 
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
 
   resolve: {
@@ -38,7 +39,8 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname),
     watchContentBase: true,
-    disableHostCheck: true
+    disableHostCheck: true,
+    historyApiFallback: true
   },
 
   module: {
