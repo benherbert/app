@@ -1,7 +1,6 @@
 // Import Packages
 import React from 'react'
 import classNames from 'classnames'
-import { connect } from 'react-redux'
 
 // Import Actions
 import { increment } from '../../store/actions/increment.action'
@@ -36,7 +35,4 @@ const Basic = props => {
   )
 }
 
-const mapStateToProps = state => state
-const ConnectedBasic = connect(mapStateToProps)(Basic)
-
-export { ConnectedBasic }
+export { Basic }

@@ -5,14 +5,14 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 // Import Components
 import { Nav } from '../3-organisms/Nav'
-import { ConnectedBasic } from '../4-templates/Basic'
+import { Basic } from '../4-templates/Basic'
 
 const App = (props) => {
   console.log(props)
 
-  const Index = () => <ConnectedBasic title='Home' {...props} />
-  const About = () => <ConnectedBasic title='About' showOurFunButton {...props} />
-  const Users = () => <ConnectedBasic title='Users' {...props} />
+  const Index = () => <Basic title='Home' {...props} />
+  const About = () => <Basic title='About' showOurFunButton {...props} />
+  const Users = () => <Basic title='Users' {...props} />
 
   return (
     <Router>
