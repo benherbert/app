@@ -5,6 +5,7 @@ import classNames from 'classnames'
 // Import Actions
 import { increment } from '../../store/actions/increment.action'
 import { decrement } from '../../store/actions/decrement.action'
+import { attemptLogin } from '../../store/actions/attemptLogin.action'
 
 // Import Components
 import { Button } from '../1-atoms/button/Button'
@@ -15,7 +16,9 @@ const Basic = props => {
   const buttonActionIncrement = () => dispatch(increment)
   const buttonActionDecrement = () => dispatch(decrement)
 
-  const renderButton = () => (
+  const buttonActionLogin = () => dispatch(attemptLogin)
+
+  const renderButton = () =>
     <div>
       <Button handleClick={buttonActionIncrement} className='theme--coyote'>
         Increment
@@ -25,12 +28,14 @@ const Basic = props => {
       </Button>
       <div>The Counter is set to {counter}</div>
     </div>
-  )
+
+  const renderLoginButton = () => <Button handleClick={buttonActionLogin} className='theme--wolf'>Login</Button>
 
   return (
     <>
       <h2>{title}</h2>
       {showOurFunButton && renderButton()}
+      {renderLoginButton()}
     </>
   )
 }

@@ -5,14 +5,16 @@ const api = 'https://google.co.uk/'
 const user = 'foo@bar.com'
 const password = 'top-secret-password'
 
-const apiCall = () => {
+const loginApiCall = () => {
 
   // The Promise
   const myPromise = new Promise((resolve, reject) => {
 
     // Here you would make a call to an API
+    const response = false
 
-    if (1 === 2) {
+    // But lets pretend it came back ok...
+    if (response) {
       resolve('resolved')
     }
     reject('rejected')
@@ -34,20 +36,39 @@ const apiCall = () => {
   return myPromise.then(onResolved, onRejected)
 }
 
-function * login_Saga (user, password) {
+/**
+ * 
+ * Worker Sagas
+ * 
+ */
+function * login_Worker (user, password) {
   try {
-    const token = yield call(apiCall, user, password)
+    const token = yield call(loginApiCall, user, password)
 
     if (token) {
-      yield put({ type: 'LOGIN_SUCCESS', token })
+      yield put({ type: 'LOGIN_SUCCEEDED', token })
       return token
     }
 
     throw 'Login Failed'
   } catch (error) {
     console.error(error)
-    yield put({ type: 'LOGIN_ERROR', error })
+    yield put({ type: 'LOGIN_FAILED', error })
   }
+}
+
+/**
+ * 
+ * Watcher Sagas
+ * 
+ */
+function * login_Watcher () {
+  yield takeLatest('ATTEMPT_LOGIN', login_Worker)
+}
+
+// Export Saga
+function * login_Saga () {
+  yield all([login_Watcher()])
 }
 
 export { login_Saga }
