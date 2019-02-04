@@ -1,15 +1,13 @@
 // Import Packages
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, takeEvery, all } from 'redux-saga/effects'
 
 // Import Sagas
-import { hello } from './hello.saga'
+import { hello_Saga } from './hello.saga'
+import { login_Saga } from './authorize.saga'
 
-function * actionWatcher () {
-  yield takeLatest('HELLO', hello)
+// All Sagas
+function * root_Saga () {
+  yield all([hello_Saga(), login_Saga()])
 }
 
-function * rootSaga () {
-  yield all([actionWatcher()])
-}
-
-export { rootSaga }
+export { root_Saga }

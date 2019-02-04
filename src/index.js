@@ -10,7 +10,7 @@ import createSagaMiddleware from 'redux-saga'
 
 // Import Store
 import { allReducers } from './store/reducers/index'
-import rootSaga from './store/sagas/index'
+import { root_Saga } from './store/sagas/index'
 
 // Import Components
 import ConnectedApp from './components/0-connected/App'
@@ -19,11 +19,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(allReducers, applyMiddleware(sagaMiddleware, logger))
 
-// TDOD: enable this --- it doesn't work yet!
-// sagaMiddleware.run(rootSaga)
-
-// Log the initial state
-console.log(store.getState())
+sagaMiddleware.run(root_Saga)
 
 ReactDOM.render(
   <Provider store={store}>
