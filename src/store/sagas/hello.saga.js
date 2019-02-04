@@ -34,7 +34,7 @@ function * incrementAsync_Worker (action) {
  */
 function * hello_Watcher () {
   yield takeEvery('INCREMENT', hello_Worker)
-  // yield takeLatest('INCREMENT', decrementAsync_Worker)
+  yield takeLatest('INCREMENT', decrementAsync_Worker) // Demo difference between takeEvery and takeLatest!
   // yield takeLatest('DECREMENT', incrementAsync_Worker)
 }
 
