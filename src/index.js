@@ -13,7 +13,7 @@ import { allReducers } from './store/reducers/index'
 import { root_Saga } from './store/sagas/index'
 
 // Import Components
-import ConnectedApp from './components/0-connected/App'
+import ConnectedApp from './components/0-connected/app/App'
 
 const sagaMiddleware = createSagaMiddleware()
 

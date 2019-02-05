@@ -72,7 +72,7 @@ function * login_Worker (user, password) {
  *
  */
 function * login_Watcher () {
-  yield takeLatest('ATTEMPT_LOGIN', login_Worker)
+  yield takeLatest('LOGIN_ATTEMPT', login_Worker)
 }
 
 // Export Saga

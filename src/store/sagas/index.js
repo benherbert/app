@@ -2,12 +2,12 @@
 import { takeLatest, takeEvery, all } from 'redux-saga/effects'
 
 // Import Sagas
-import { hello_Saga } from './hello.saga'
-import { login_Saga } from './authorize.saga'
+import { counter_Saga } from './counter.saga'
+import { login_Saga } from './login.saga'
 
 // All Sagas
 function * root_Saga () {
-  yield all([hello_Saga(), login_Saga()])
+  yield all([counter_Saga(), login_Saga()])
 }
 
 export { root_Saga }

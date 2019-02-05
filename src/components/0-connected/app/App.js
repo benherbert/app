@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 // Import Components
-import { Nav } from '../3-organisms/Nav'
-import { Basic } from '../4-templates/Basic'
+import { Nav } from '../../3-organisms/nav/Nav'
+import { Basic } from '../../4-templates/basic/Basic'
 
 const App = (props) => {
   console.log(props)

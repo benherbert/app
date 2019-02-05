@@ -8,9 +8,9 @@ import { put, all, delay, takeLatest, takeEvery } from 'redux-saga/effects'
  * (The functions we want to run when the watchers are triggered)
  * 
  */
-function * hello_Worker (action) {
-  console.log('Hello worker!', action)
-  yield put({ type: 'HELLO_WORKER' })
+function * counter_Worker (action) {
+  console.log('Counter worker!', action)
+  yield put({ type: 'COUNTER_WORKER' })
 }
 
 function * decrementAsync_Worker (action) {
@@ -32,15 +32,15 @@ function * incrementAsync_Worker (action) {
  * (The redux actions we want to watch for)
  * 
  */
-function * hello_Watcher () {
-  yield takeEvery('INCREMENT', hello_Worker)
+function * counter_Watcher () {
+  yield takeEvery('INCREMENT', counter_Worker)
   yield takeLatest('INCREMENT', decrementAsync_Worker) // Demo difference between takeEvery and takeLatest!
   // yield takeLatest('DECREMENT', incrementAsync_Worker)
 }
 
 // Export Saga
-function * hello_Saga () {
-  yield all([hello_Watcher()])
+function * counter_Saga () {
+  yield all([counter_Watcher()])
 }
 
-export { hello_Saga }
+export { counter_Saga }

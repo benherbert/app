@@ -3,20 +3,18 @@ import React from 'react'
 import classNames from 'classnames'
 
 // Import Actions
-import { increment } from '../../store/actions/increment.action'
-import { decrement } from '../../store/actions/decrement.action'
-import { attemptLogin } from '../../store/actions/attemptLogin.action'
+import { increment, decrement } from '../../../store/actions/counter.action'
+import { loginAttempt } from '../../../store/actions/login.action'
 
 // Import Components
-import { Button } from '../1-atoms/button/Button'
+import { Button } from '../../1-atoms/button/Button'
 
 const Basic = props => {
   const { title, dispatch, showOurFunButton = false, counter = 0 } = props
 
   const buttonActionIncrement = () => dispatch(increment)
   const buttonActionDecrement = () => dispatch(decrement)
-
-  const buttonActionLogin = () => dispatch(attemptLogin)
+  const buttonActionLogin = () => dispatch(loginAttempt)
 
   const renderButton = () =>
     <div>
