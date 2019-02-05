@@ -1,3 +1,14 @@
+const INCREMENT = 'INCREMENT'
+const DECREMENT = 'DECREMENT'
+
+const increment = {
+  type: INCREMENT
+}
+
+const decrement = {
+  type: DECREMENT
+}
+
 const initialState = 0
 
 const counter = (state = initialState, action) => {
@@ -11,4 +22,4 @@ const counter = (state = initialState, action) => {
   }
 }
 
-export { counter }
+export { counter, increment, decrement }

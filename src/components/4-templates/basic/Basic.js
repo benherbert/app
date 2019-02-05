@@ -3,8 +3,8 @@ import React from 'react'
 import classNames from 'classnames'
 
 // Import Actions
-import { increment, decrement } from '../../../store/actions/counter.action'
-import { loginAttempt } from '../../../store/actions/login.action'
+import { increment, decrement } from '../../../redux/counter.redux'
+import { loginAttempted } from '../../../redux/login.redux'
 
 // Import Components
 import { Button } from '../../1-atoms/button/Button'
@@ -14,7 +14,7 @@ const Basic = props => {
 
   const buttonActionIncrement = () => dispatch(increment)
   const buttonActionDecrement = () => dispatch(decrement)
-  const buttonActionLogin = () => dispatch(loginAttempt)
+  const buttonActionLogin = () => dispatch(loginAttempted)
 
   const renderButton = () =>
     <div>

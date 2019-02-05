@@ -9,8 +9,8 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 // Import Store
-import { allReducers } from './store/reducers/index'
-import { root_Saga } from './store/sagas/index'
+import { allReducers } from './redux/index.redux'
+import { root_Saga } from './redux/sagas/index.saga'
 
 // Import Components
 import ConnectedApp from './components/0-connected/app/App'
