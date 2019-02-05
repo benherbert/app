@@ -2,8 +2,8 @@
 import request from 'superagent'
 import { call, take, put, all, delay, takeLatest, takeEvery } from 'redux-saga/effects'
 
-const api = 'https://local.crunch.co.uk:8086/platform-api/login/authorize'
-// const api = 'https://accounts.crunch.co.uk/platform-api/login/authorize'
+const api = 'http://google.com'
+
 const email = 'foo@bar.com'
 const password = 'top-secret-password'
 
@@ -12,20 +12,18 @@ const loginApiCall = () => {
   const loginPromise = new Promise((resolve, reject) => {
     request
       .post(api)
-      .type('application/json')
-      .set('Content-Type', 'application/vnd.crunch.login+json; version=1.0')
-      .set('X-Forwarded-Host', 'localhost')
-      .set('X-Forwarded-For', '127.0.0.1')
-      .send({ email: 'email@email.com' })
-      .send({ password: 'Crunch1234' })
-      .then(res => {
-        console.log({ res })
-        // res.body, res.headers, res.status
+      .set('Content-Type', 'application/json')
+      .send({ email: 'email@email.com', password: 'Crunch1234' })
+      .then(response => {
+        const { body, header, status } = response
+        console.log({ body })
+        console.log({ headers })
+        console.log({ status })
         resolve('resolved')
       })
-      .catch(err => {
-        console.log({ err })
-        // err.message, err.response
+      .catch(error => {
+        const { message, response } = error
+        console.log({ message })
       })
 
     reject('rejected')
