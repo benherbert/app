@@ -65,7 +65,8 @@
     "build:storybook": "build-storybook -o dist",
     "start:storybook": "npm run storybook",
     "storybook": "start-storybook -p 9009",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "browserslist": [
     "last 2 Chrome versions"
