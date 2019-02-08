@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { Nav } from '../../3-organisms/nav/Nav'
 import { Basic } from '../../4-templates/basic/Basic'
 
-const App = (props) => {
+const App = props => {
   console.log(props)
 
   const Index = () => <Basic title='Home' {...props} />
@@ -26,7 +26,12 @@ const App = (props) => {
   )
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = ({ counter, loggedIn, loginAttempt }) => ({
+  counter,
+  loggedIn,
+  loginAttempt
+})
+
 const ConnectedApp = connect(mapStateToProps)(App)
 
 export default ConnectedApp
