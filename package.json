@@ -70,5 +70,8 @@
   },
   "browserslist": [
     "last 2 Chrome versions"
-  ]
+  ],
+  "jest": {
+    "verbose": true
+  }
 }
