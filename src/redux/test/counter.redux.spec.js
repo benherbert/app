@@ -1,9 +1,9 @@
 import expect from 'expect'
+
 import { increment, decrement, counter as reducer } from '../counter.redux'
 
 // TODO: no store, so state is not actuall updated, this only tests the function of the reducer...
-
-describe('reducer', () => {
+describe('counter', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(0)
   })

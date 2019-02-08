@@ -1,4 +1,5 @@
 import expect from 'expect'
+
 import { loginAttempted, loginSucceeded, loginFailed, loggedIn as reducerLoggedIn, loginAttempt as reducerLoginAttempt } from '../login.redux'
 
 describe('loggedIn', () => {

@@ -35,7 +35,7 @@ function * incrementAsync_Worker (action) {
 function * counter_Watcher () {
   yield takeEvery('INCREMENT', counter_Worker)
   yield takeLatest('INCREMENT', decrementAsync_Worker) // Demo difference between takeEvery and takeLatest!
-  // yield takeLatest('DECREMENT', incrementAsync_Worker)
+  // yield takeLatest('DECREMENT', incrementAsync_Worker) // This does the opposite of the above
 }
 
 // Export Saga

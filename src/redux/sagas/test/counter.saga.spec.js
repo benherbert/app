@@ -5,6 +5,8 @@ import { put, take } from 'redux-saga/effects'
 import { increment, counter } from '../../counter.redux'
 import { counter_Saga } from '../counter.saga'
 
-test.skip('counter_Saga', () => {
+describe.skip('Saga - Counter', () => {
+  test('counter', () => {
     // TODO
+  })
 })

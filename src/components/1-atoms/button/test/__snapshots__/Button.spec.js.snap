@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button renders correctly 1`] = `
+<button
+  className="button"
+  disabled={false}
+  type="button"
+>
+  Facebook
+</button>
+`;
+
 exports[`renders correctly 1`] = `
 <button
   className="button"
