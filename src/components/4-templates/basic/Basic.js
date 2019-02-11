@@ -8,6 +8,7 @@ import { loginAttempted } from '../../../redux/login.redux'
 
 // Import Components
 import { Button } from '../../1-atoms/button/Button'
+import { DynamicComponent } from '../../0-connected/dynamic/DynamicComponent'
 
 const Basic = props => {
   const { title, dispatch, showOurFunButton = false, counter = 0 } = props
@@ -34,6 +35,9 @@ const Basic = props => {
       <h2>{title}</h2>
       {showOurFunButton && renderButton()}
       {renderLoginButton()}
+      <div>
+        <DynamicComponent />
+      </div>
     </>
   )
 }

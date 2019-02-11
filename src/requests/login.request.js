@@ -3,18 +3,18 @@ import request from 'superagent'
 /**
  * Constants
  */
-const api = 'http://google.com'
-const email = 'foo@bar.com'
-const password = 'top-secret-password'
-
+const api = ''
 /**
  * Superagent Post
  */
 const superagentPost = (resolve, reject) => {
   request
     .post(api)
-    .set('Content-Type', 'application/json')
-    .send({ email: email, password: password })
+    .set('Content-Type', '')
+    .send({ firstName: '' })
+    .send({ lastName: '' })
+    .send({ email: '' })
+    .send({ password: '' })
     .then(response => {
       const { body, header, status } = response
       resolve('the-token-or-something')

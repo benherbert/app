@@ -23,6 +23,7 @@ const config = {
 
   output: {
     filename: '[name].js',
+    chunkFilename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
@@ -99,6 +100,31 @@ const config = {
         ]
       },
     ]
+  },
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
 
   plugins: [
